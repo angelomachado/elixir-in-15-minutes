@@ -52,6 +52,28 @@ is_map(jon) #true
 ```
 ### Pattern Matching
 ```elixir
+ #In elixir = is our match operator.
+ x = 10
+ 10 = x #Same value. No problem
+ 12 = x
+ ** (MatchError) no match of right hand side value: 10
+ #All values will match
+ [a, b, c] = [1, 2, 3]
+ [a, b, c] = [1, 2]
+ ** (MatchError) no match of right hand side value: [1, 2]
+ {:ok, value} = {:ok, [1, 2, 3]}
+ {:error, _} = {:error, "some discarded value"}
+ #List head and tail
+ [h|t] = [1, 2, 3] #h -> 1, t -> [2, 3]
+ #The pin(^) operator. Used when you want to match against a variable's value rather than rebind it
+ x = 2
+ ^x = 2
+ ^x = 3
+ ** (MatchError) no match of right hand side value: 3
+ {y, ^x} = {2, 2}
+ {y, ^x} = {3, 2}
+ {y, ^x} = {2, 3}
+ ** (MatchError) no match of right hand side value: {2, 3}
 ```
 
 
