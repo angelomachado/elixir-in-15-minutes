@@ -2,23 +2,29 @@
   This guide will show you in 15 minutes how powerfull Elixir language is. Feel free to send me a PR.
   
   Shall we begin?
+  
 ### Index
-1. Data types
+1. Basic Data types
 2. Operators
 3. Pattern Matching
+4. Control-Flow Structures
 
-### Data types
+### Basic Data types
 ```elixir
 1 #integer
 0xA #integer
 2.0 #float
 "abcd" #string
+<<101, 108, 105, 120, 105, 114>> #bitstring "elixir"
+'elixir' #char list
 [1, 2 ,3] #list
 [a: 1, b: 2] #keyword list
 {1,2,3} #tuple
 %{a: 2, b: 3} #map
-true #boolean
-:false #booleans are just atoms
+true #booleans are just atoms
+is_boolean(:false) # -> true 
+is_atom(nil) # -> true
+is_nil(:nil) # -> true
 #structs
 defmodule Bastard do
   #Default values
@@ -65,6 +71,7 @@ is_map(jon) #true
  {:error, _} = {:error, "some discarded value"}
  #List head and tail
  [h|t] = [1, 2, 3] #h -> 1, t -> [2, 3]
+ <<c, 108>>  = <<101, 108>> #Bitstrings
  #The pin(^) operator. Used when you want to match against a variable's value rather than rebind it
  x = 2
  ^x = 2
@@ -75,7 +82,7 @@ is_map(jon) #true
  {y, ^x} = {2, 3}
  ** (MatchError) no match of right hand side value: {2, 3}
 ```
-
+### Control-Flow Structures
 
 
 
