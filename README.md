@@ -8,6 +8,7 @@
 2. Operators
 3. Pattern Matching
 4. Control-Flow Structures
+5. Functions
 
 ### Basic Data types
 ```elixir
@@ -83,7 +84,42 @@ is_map(jon) #true
  ** (MatchError) no match of right hand side value: {2, 3}
 ```
 ### Control-Flow Structures
-
+```elixir
+ #Comparing a value against many patterns with case
+ case {:ok, x} do
+   {:error, 10} ->
+     IO.puts("will never match")
+   _ ->
+     IO.puts("always matches")
+ end
+ #Finding the first condition which evaluates to true(any value except for false or nil)
+ x = 1
+ cond do
+   false ->
+     IO.puts("this will never match")
+   nil ->
+     IO.puts("neither this")
+   x ->
+     IO.puts("ok")
+   true ->
+     IO.puts("ok too")
+ end
+ #if and unless are macros
+ #if/else
+ if true do
+   IO.puts("It's true!")
+ else
+   IO.puts("not true")
+ end
+ #do/end
+ if true, do: 1 + 2
+ if false, do: :this, else: :that
+ #unless
+ unless is_atom(1) do
+   IO.puts("Not an atom")
+ end
+```
+### Functions
 
 
 
